@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TDS - Technological and Digital Shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="./img2.png" />
+    <meta name="description" content="TDS - Configura tu PC ideal con recomendador inteligente, 
+        comparador de precios, setups optimizados y soporte técnico profesional.">
+</head>
+
+<body>
+    <header style="background: var(--surface);">
+        <nav class="navbar navbar-expand-lg container">
+
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="./img1.png" class="logo-navbar" alt="Logo TDS">
+                <div class="d-flex flex-column ms-2 lh-sm">
+                    <span class="fw-bold" style="color: var(--accent-blue); font-size: 1.25rem;">TDS</span>
+                    <small style="font-size: 0.75rem; color: var(--text);">Technological and Digital Shop</small>
+                </div>
+            </a>
+
+            <button class="menu-toggle" id="mobile-menu" aria-label="Abrir menú" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <!-- ========================= -->
+            <!--      NAVEGACIÓN TDS       -->
+            <!-- ========================= -->
+            <ul class="nav-list">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#recomendador">Recomendaciones</a></li>
+                <li><a href="#comparador">Comparador</a></li>
+                <li><a href="#soporte">Soporte Técnico</a></li>
+                <li><a href="#academia">Academia</a></li>
+            </ul>
+
+            <button id="toggleTheme" class="theme btn btn-sm ms-lg-3">☀️ / 🌙</button>
+
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <h2>Arma tu PC ideal con precisión total</h2>
+            <p>Simulador 3D con verificación de compatibilidad automática y asesoría técnica especializada.</p>
+            <a href="#nosotros">Empezar a Montar</a>
+        </section>
+
+        <section id="nosotros" class="propuesta-valor">
+            <div class="intro-nosotros">
+                <span class="subtitle">Diferenciación TDS</span>
+                <h2>Más que una tienda, tu socio tecnológico</h2>
+                <p>Entendemos la tecnología para que tú no tengas que preocuparte por ella.</p>
+            </div>
+
+            <div class="grid-propuestas">
+                <div class="card-valor">
+                    <div class="icon">🚀</div>
+                    <h3>Modelo Just-in-Time</h3>
+                    <p>No almacenamos stock antiguo. Pedimos tus piezas al momento para
+                        garantizarte el precio de mercado más bajo y componentes de última hornada.</p>
+                </div>
+
+                <div class="card-valor">
+                    <div class="icon">🛠️</div>
+                    <h3>Montaje a Domicilio</h3>
+                    <p>¿Miedo a romper algo? Nuestros técnicos cualificados van a tu casa
+                        o empresa para dejar tu equipo listo y optimizado.</p>
+                </div>
+
+                <div class="card-valor">
+                    <div class="icon">🔍</div>
+                    <h3>Verificación TDS Check</h3>
+                    <p>Nuestra IA no solo comprueba piezas; nuestro algoritmo de
+                        compatibilidad asegura que cada vatio y cada milímetro encajen perfectamente.</p>
+                </div>
+
+                <div class="card-valor">
+                    <div class="icon">🤝</div>
+                    <h3>Asesoría Física Inmediata</h3>
+                    <p>Olvida los bots de chat. En TDS hablas con expertos reales que
+                        entienden tus necesidades informáticas y de presupuesto.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicios">
+            <div class="servicio-card">
+                <h3>Recomendador</h3>
+                <p>
+                    Con ayuda de nuestra IA puedes recibir una recomendación a medida de tus necesidades
+                </p>
+            </div>
+            <div class="servicio-card">
+                <h3>Comparador de Precios</h3>
+                <p>Analizamos el mercado semanalmente para darte la mejor opción.</p>
+            </div>
+            <div class="servicio-card">
+                <h3>Asistencia Inmediata</h3>
+                <p>Solución a incidencias y montaje a domicilio por técnicos cualificados.</p>
+            </div>
+        </section>
+
+        <!-- ========================= -->
+        <!--     RECOMENDADOR TDS      -->
+        <!-- ========================= -->
+        <section id="recomendador" class="recomendador-section">
+            <h2>🎯 Recomendador Inteligente</h2>
+            <p>Responde unas preguntas y te damos configuraciones adaptadas a tus necesidades.</p>
+
+            <form id="form-recomendador" class="reco-form">
+                <div class="input-group">
+                    <label for="uso">¿Para qué usarás el PC?</label>
+                    <select id="uso" required>
+                        <option value="">Selecciona una opción</option>
+                        <option value="gaming">Gaming</option>
+                        <option value="oficina">Ofimática / Estudio</option>
+                        <option value="edicion">Edición de video / Render</option>
+                        <option value="streaming">Streaming</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="presupuesto">Presupuesto aproximado</label>
+                    <select id="presupuesto" required>
+                        <option value="">Selecciona una opción</option>
+                        <option value="600">Hasta 600€</option>
+                        <option value="900">600 - 900€</option>
+                        <option value="1200">900 - 1200€</option>
+                        <option value="2000">Más de 1200€</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="tamano">Tamaño del equipo</label>
+                    <select id="tamano" required>
+                        <option value="">Selecciona una opción</option>
+                        <option value="mini">Pequeño (Mini-ITX)</option>
+                        <option value="medio">Medio (Micro-ATX)</option>
+                        <option value="grande">Grande (ATX)</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-enviar">Generar Recomendaciones</button>
+            </form>
+
+            <div id="resultado-recomendador" class="resultado-reco"></div>
+        </section>
+
+        <!-- ========================= -->
+        <!--     SETUPS DESTACADOS    -->
+        <!-- ========================= -->
+        <section id="setups" class="setups-section">
+            <h2>⭐ Setups Recomendados TDS</h2>
+            <p>Configuraciones optimizadas creadas por nuestros técnicos.</p>
+
+            <div class="grid-setups">
+
+                <div class="setup-card">
+                    <h3>Setup Gaming 1200€</h3>
+                    <ul>
+                        <li>RTX 4060 Ti</li>
+                        <li>Ryzen 5 7600</li>
+                        <li>16GB DDR5</li>
+                        <li>1TB NVMe</li>
+                    </ul>
+                    <button class="btn-comprar">Ver Detalle</button>
+                </div>
+
+                <div class="setup-card">
+                    <h3>Setup Oficina 800€</h3>
+                    <ul>
+                        <li>i5 12400F</li>
+                        <li>16GB DDR4</li>
+                        <li>500GB SSD</li>
+                        <li>Gráficos integrados</li>
+                    </ul>
+                    <button class="btn-comprar">Ver Detalle</button>
+                </div>
+
+                <div class="setup-card">
+                    <h3>Setup Creativo 1500€</h3>
+                    <ul>
+                        <li>RTX 4070</li>
+                        <li>Ryzen 7 7700</li>
+                        <li>32GB DDR5</li>
+                        <li>2TB NVMe</li>
+                    </ul>
+                    <button class="btn-comprar">Ver Detalle</button>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="galeria" class="py-5">
+            <div class="container">
+                <h2 class="mb-3" style="color: var(--text);">Galería de Componentes</h2>
+                <p>Explora cajas, placas base, RAM, ventiladores y más.</p>
+
+                <div class="row g-4 mt-4">
+
+                    <!-- Cajas -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card galeria-card shadow-sm">
+                            <img src="https://tiendaakiba.com/wp-content/uploads/caja-atx-antec-c8-black-full-tower-negro-foto-1.webp"
+                                class="card-img-top galeria-img" alt="Caja de PC">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Caja ATX</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Placa base -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card galeria-card shadow-sm">
+                            <img src="https://tse4.mm.bing.net/th/id/OIP.eFk4KuB6o87I0_Mea4_-4wHaGU?rs=1&pid=ImgDetMain&o=7&rm=3"
+                                class="card-img-top galeria-img" alt="Placa base">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Placa Base ASUS</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RAM -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card galeria-card shadow-sm">
+                            <img src="https://mexx-img-2019.s3.amazonaws.com/Memoria-Ram-DDR5-16Gb-4800Mhz-Kingston-Fury-Beast-Rgb_45957_2.jpeg"
+                                class="card-img-top galeria-img" alt="Memoria RAM">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Memoria RAM DDR5</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ventiladores -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card galeria-card shadow-sm">
+                            <img src="https://www.profesionalreview.com/wp-content/uploads/2022/07/Nox-lanza-cuatro-nuevos-ventiladores-ARGB_2.jpg"
+                                class="card-img-top galeria-img" alt="Ventiladores">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Ventilador RGB</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Disco Duro -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card galeria-card shadow-sm">
+                            <img src="https://www.vsgamers.es/thumbnails/product_gallery_large/uploads/products/asus-gaming/discos-duros/disco-duro-externo-ssd-rog-asus-gaming-rog-strix-arion-s500/galeria/disco-duro-externo-ssd-rog-asus-gaming-rog-strix-arion-s500-galeria-3.jpg"
+                                class="card-img-top galeria-img" alt="Disco Duro">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">Disco Duro</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CPU -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card galeria-card shadow-sm">
+                            <img src="https://s.yimg.com/ny/api/res/1.2/lFOo.Oyf4kByuXUKNNVf3A--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD03MjA-/https://o.aolcdn.com/hss/storage/midas/be4c200c7d493d3cb883700a3af67444/206291850/Ryzen-Chip-5.jpg"
+                                class="card-img-top galeria-img" alt="CPU">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">CPU</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GPU -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="card galeria-card shadow-sm">
+                            <img src="https://computercity.com/wp-content/uploads/geforce-rtx-gpu.webp"
+                                class="card-img-top galeria-img" alt="GPU">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">GPU</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparador de precios -->
+        <section id="comparador" class="comparador-section">
+            <div class="comparador-header">
+                <h2>Comparador de Precios</h2>
+                <p>Actualizado semanalmente para ofrecerte el mejor coste del mercado.</p>
+
+                <div class="search-box">
+                    <input type="text" placeholder="Ej: RTX 4060, Procesador i7, Memoria RAM..." />
+                    <button>Buscar</button>
+                </div>
+            </div>
+
+            <!-- Tabla accesible -->
+            <div class="tabla-precios">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Componente</th>
+                            <th scope="col">Marca</th>
+                            <th scope="col">Precio TDS</th>
+                            <th scope="col">Competencia</th>
+                            <th scope="col">Ahorro</th>
+                            <th scope="col">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tarjeta Gráfica RTX 4070</td>
+                            <td>NVIDIA</td>
+                            <td class="precio-tds">599€</td>
+                            <td class="precio-comp">645€</td>
+                            <td class="ahorro">7%</td>
+                            <td><button class="btn-comprar">Ver Detalle</button></td>
+                        </tr>
+                        <tr>
+                            <td>Procesador Ryzen 7 7800X3D</td>
+                            <td>AMD</td>
+                            <td class="precio-tds">380€</td>
+                            <td class="precio-comp">410€</td>
+                            <td class="ahorro">8%</td>
+                            <td><button class="btn-comprar">Ver Detalle</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Soporte -->
+        <section id="soporte" class="soporte-container">
+            <div class="soporte-info">
+                <h2>Asistencia Técnica Profesional</h2>
+                <p>¿Tu equipo no funciona correctamente? ¿Necesitas un montaje a domicilio?</p>
+                <ul class="ventajas-soporte">
+                    <li>✅ Técnicos cualificados en hardware y software.</li>
+                    <li>✅ Respuesta inmediata y asesoría personalizada.</li>
+                    <li>✅ Servicio de reparación y mantenimiento "Just-in-Time".</li>
+                </ul>
+                <div class="badge-tecnico">
+                    <span>Disponibilidad: <strong>Inmediata</strong></span>
+                </div>
+            </div>
+
+            <!-- Formulario -->
+            <div class="soporte-form">
+                <h3>Reportar Incidencia / Solicitar Técnico</h3>
+                <form>
+                    <div class="input-group">
+                        <label>Nombre Completo</label>
+                        <input type="text" placeholder="Tu nombre" required />
+                    </div>
+                    <div class="input-group">
+                        <label>Tipo de Problema</label>
+                        <select>
+                            <option value="montaje">Montaje a domicilio</option>
+                            <option value="fallo">Fallo de Hardware</option>
+                            <option value="software">Instalación de Software / OS</option>
+                            <option value="limpieza">Mantenimiento y Limpieza</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Descripción de la incidencia</label>
+                        <textarea rows="4" placeholder="Describe brevemente qué sucede con tu equipo..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-enviar">Enviar Solicitud</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Academia -->
+        <section id="academia" class="academia-section">
+            <div class="academia-intro">
+                <h2>Academia TDS</h2>
+                <p>Aprende desde lo básico hasta el montaje profesional con nuestros expertos.</p>
+            </div>
+
+            <div class="grid-tutoriales">
+                <article class="video-card">
+                    <div class="thumbnail">
+                        <span class="tag">Principiante</span>
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Cómo elegir tu Procesador</h3>
+                        <p>Guía sobre sockets, núcleos y frecuencias para no expertos.</p>
+                        <a href="#video1" class="leer-mas">Ver tutorial</a>
+                    </div>
+                </article>
+
+                <article class="video-card">
+                    <div class="thumbnail">
+                        <span class="tag">Intermedio</span>
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Instalación de Refrigeración</h3>
+                        <p>Mantén tu equipo fresco: Aire vs Refrigeración Líquida.</p>
+                        <a href="#video2" class="leer-mas">Ver tutorial</a>
+                    </div>
+                </article>
+
+                <article class="video-card">
+                    <div class="thumbnail">
+                        <span class="tag">Técnico</span>
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Gestión de Cables Pro</h3>
+                        <p>Organiza tu infraestructura interna para un flujo de aire óptimo.</p>
+                        <a href="#video3" class="leer-mas">Ver tutorial</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            <a href="#">Política de privacidad</a> •
+            <a href="#">Términos de uso</a> •
+            <a href="#">Cookies</a>
+        </p>
+
+        <div class="contacto">
+            <p>Contacto: info@tds-shop.com</p>
+            <p>Partners: Ingram Micro | AWS | SEUR</p>
+        </div>
+
+        <div class="copyright">
+            <p>
+                &copy; 2026 TDS - Hecho por Mateo Duque, Eiby Carmona y Nicolas Valdelamar
+            </p>
+        </div>
+    </footer>
+
+    <div class="whatsapp-float">
+        <a href="https://wa.me/tu-numero-aqui" target="_blank" class="float-btn">
+            <span class="tooltip">¿Necesitas ayuda técnica?</span>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Support" />
+        </a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-GiMJn9Wq3m1j0kKxwYk7wP1yEwO8qF1W5Cq3rW8qv7k6x7j9kH8b2i3s1Z0r2lQe"
+        crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>

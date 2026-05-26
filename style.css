@@ -1,0 +1,930 @@
+/* ============================= */
+/*   TEMA CLARO (por defecto)    */
+/* ============================= */
+:root {
+    --bg: #f7f9fc;
+    --surface: #ffffff;
+    --surface-2: #f1f3f5;
+    --text: #0f172a;
+    /* Gris muy oscuro */
+    --muted: #475569;
+    /* Gris medio */
+    --border: #e2e8f0;
+    --accent-blue: #00d4ff;
+    /* Cian/Azul TDS en claro */
+    --accent-green: #39ff14;
+
+    /* Compat con tus tokens previos */
+    --primary-dark: var(--bg);
+    --secondary-dark: var(--surface);
+    --text-light: var(--text);
+    --gray-text: var(--muted);
+}
+
+/* ============================= */
+/*        TEMA OSCURO TDS        */
+/* ============================= */
+:root[data-theme="dark"] {
+    --bg: #0a0e14;
+    --surface: #161b22;
+    --surface-2: #0d1117;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --border: #30363d;
+    --accent-blue: #00d4ff;
+    --accent-green: #39ff14;
+
+    --primary-dark: var(--bg);
+    --secondary-dark: var(--surface);
+    --text-light: var(--text);
+    --gray-text: var(--muted);
+}
+
+/* Respeta preferencia del SO la primera vez */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+        color-scheme: dark;
+    }
+}
+
+
+/* Aplicación base */
+body {
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+
+/* CABECERA Y NAVEGACIÓN */
+
+
+header,
+footer {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    color: var(--text);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    color: var(--accent-blue);
+    letter-spacing: 2px;
+}
+
+.logo span {
+    font-size: 0.8rem;
+    color: var(--gray-text);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li a {
+    color: var(--text-light);
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--accent-blue);
+}
+
+/* SECCIÓN HERO (Presentación) */
+.hero {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background:
+        linear-gradient(to bottom,
+            rgba(247, 249, 252, 0.85),
+            rgba(247, 249, 252, 0.30)),
+        url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1600");
+    /* Imagen de fondo tecnológica */
+    background-size: cover;
+    padding: 0 20px;
+}
+
+:root[data-theme="dark"] .hero {
+    background:
+        linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.85),
+            rgba(0, 212, 255, 0.10)),
+        url("https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&q=80&w=1600");
+    background-size: cover;
+    background-position: center;
+}
+
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--accent-blue);
+}
+
+
+.hero a {
+    margin-top: 2rem;
+    padding: 15px 30px;
+    background-color: var(--accent-blue);
+    border: none;
+    border-radius: 5px;
+    color: var(--text);
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+}
+
+.hero a:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--accent-blue);
+}
+
+
+a,
+.btn-comprar,
+.btn-enviar {
+    color: var(--accent-blue);
+}
+
+.btn-enviar,
+.search-box a {
+    background: var(--accent-blue);
+    color: #fff;
+}
+
+
+/* TARJETAS DE SERVICIOS */
+#servicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 50px 5%;
+}
+
+.servicio-card {
+    background-color: var(--surface);
+    padding: 1rem 5%;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    transition: border 0.3s;
+    top: 0;
+
+}
+
+.servicio-card:hover {
+    border-color: var(--accent-blue);
+}
+
+.servicio-card h3 {
+    color: var(--accent-blue);
+    margin-bottom: 15px;
+}
+
+/* ÁREA DEL SIMULADOR 3D */
+#simulador {
+    padding: 50px 5%;
+    text-align: center;
+}
+
+#canvas-container {
+    width: 100%;
+    height: 500px;
+    background-color: #000;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed var(--gray-text);
+    margin-top: 20px;
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--secondary-dark);
+    padding: 40px 5%;
+    margin-top: 50px;
+    border-top: 1px solid #30363d;
+}
+
+.contacto {
+    display: flex;
+    justify-content: space-between;
+    color: var(--gray-text);
+    margin-bottom: 20px;
+}
+
+/* SECCIÓN SOPORTE TÉCNICO */
+.soporte-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 60px 5%;
+    background-color: var(--secondary-dark);
+    margin: 40px 0;
+}
+
+.soporte-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.soporte-info h2 {
+    color: var(--accent-blue);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.ventajas-soporte {
+    list-style: none;
+    margin: 20px 0;
+}
+
+.ventajas-soporte li {
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+}
+
+.badge-tecnico {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid var(--accent-green);
+    border-radius: 50px;
+    color: var(--accent-green);
+}
+
+.badge-tecnico:hover {
+    background: var(--accent-green);
+    color: var(--bg);
+}
+
+/* FORMULARIO */
+.soporte-form {
+    flex: 1;
+    min-width: 300px;
+    background-color: var(--surface);
+    padding: 1rem 5%;
+    border-radius: 15px;
+    border: 1px solid var(--border);
+    top: 0;
+
+}
+
+.soporte-form h3 {
+    margin-bottom: 20px;
+    color: var(--text-light);
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--gray-text);
+    font-size: 0.9rem;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    color: var(--text);
+    outline: none;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+    border-color: var(--accent-blue);
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(14, 165, 233, .25);
+
+}
+
+.btn-enviar {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--accent-blue);
+    color: var(--primary-dark);
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.btn-enviar:hover {
+    background-color: #00b8e6;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+}
+
+/* SECCIÓN COMPARADOR */
+.comparador-section {
+    padding: 60px 5%;
+}
+
+.comparador-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.search-box {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-box input {
+    width: 400px;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #30363d;
+    background: var(--secondary-dark);
+    color: white;
+}
+
+.search-box button {
+    padding: 12px 25px;
+    background: var(--accent-blue);
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* TABLA DE PRECIOS */
+.tabla-precios {
+    overflow-x: auto;
+    /* Para que sea móvil-friendly */
+    background: var(--surface);
+    border-radius: 15px;
+    padding: 1rem 5%;
+    border: 1px solid var(--border);
+    top: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th,
+td {
+    padding: 15px;
+    border-bottom: 1px solid #30363d;
+}
+
+th {
+    color: var(--accent-blue);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.precio-tds {
+    color: var(--accent-green);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.precio-comp {
+    color: var(--muted);
+    text-decoration: line-through;
+    font-size: 0.9rem;
+}
+
+.ahorro {
+    background: rgba(57, 255, 20, 0.1);
+    color: var(--accent-green);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.btn-comprar {
+    background: transparent;
+    border: 1px solid var(--accent-blue);
+    color: var(--accent-blue);
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-comprar:hover {
+    background: var(--accent-blue);
+    color: var(--primary-dark);
+}
+
+/* SECCIÓN ACADEMIA */
+.academia-section {
+    padding: 80px 5%;
+    background: linear-gradient(180deg,
+            var(--primary-dark) 0%,
+            #0d1117af 100%);
+}
+
+.academia-intro {
+    text-align: left;
+    margin-bottom: 40px;
+    border-left: 5px solid var(--accent-blue);
+    padding-left: 20px;
+}
+
+.grid-tutoriales {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.video-card {
+    background: var(--surface);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    border: 1px solid var(--border);
+    top: 0;
+}
+
+.video-card:hover {
+    transform: translateY(-10px);
+}
+
+.thumbnail {
+    height: 180px;
+    background: var(--surface);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--accent-blue);
+    color: var(--primary-dark);
+    padding: 3px 10px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+.play-icon {
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.video-info {
+    padding: 20px;
+}
+
+.video-info h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.video-info p {
+    color: var(--gray-text);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.leer-mas {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* SECCIÓN PROPUESTA DE VALOR */
+.propuesta-valor {
+    padding: 100px 5%;
+    text-align: center;
+    background: linear-gradient(0deg,
+            var(--primary-dark) 0%,
+            #adadadc7 100%);
+}
+
+.intro-nosotros {
+    margin-bottom: 60px;
+}
+
+.subtitle {
+    color: var(--accent-green);
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 1.5rem;
+
+}
+
+.intro-nosotros h2 {
+    font-size: 2.5rem;
+    margin: 15px 0;
+}
+
+.grid-propuestas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.card-valor {
+    background: var(--surface);
+    border-color: var(--border);
+    padding: 40px 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 212, 255, 0.1);
+    transition: all 0.4s ease;
+    text-align: left;
+
+}
+
+.card-valor:hover {
+    border-color: var(--accent-blue);
+    transform: translateY(-10px);
+    box-shadow: 0 8px 24px rgba(2, 8, 23, 0.06);
+}
+
+.card-valor .icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.card-valor h3 {
+    color: var(--accent-blue);
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.card-valor p {
+    color: var(--gray-text);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Estilos para móviles y tablets */
+@media (max-width: 768px) {
+
+    /* Hacemos que el menú de navegación sea vertical */
+    nav {
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    /* El Hero (inicio) reduce el tamaño de letra para que quepa */
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    /* Las secciones de soporte y propuesta de valor pasan de 2 columnas a 1 */
+    .soporte-container,
+    .grid-propuestas {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    /* Ajustamos el buscador del comparador para que no se salga de la pantalla */
+    .search-box {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+
+    /* La tabla del comparador permite scroll horizontal si es muy ancha */
+    .tabla-precios {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+/* Estilo del botón hamburguesa (escondido por defecto en PC) */
+.menu-toggle {
+    background-color: var(--surface);
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background-color: var(--accent-blue);
+    transition: 0.3s;
+}
+
+/* --- MEDIA QUERY PARA MÓVILES --- */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+        /* Aparece en móviles */
+    }
+
+    .nav-list {
+        display: none;
+        /* Escondemos la lista por defecto */
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: var(--secondary-dark);
+        padding: 20px;
+        border: 1px solid var(--text);
+        transform: translateY(55px);
+    }
+
+    /* Clase que añadiremos con JS para mostrar el menú */
+    .nav-list.active {
+        display: flex;
+    }
+}
+
+/* Animación para convertir las rayas en una X */
+.menu-toggle.is-active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.is-active span:nth-child(2) {
+    opacity: 0;
+    /* Desaparece la raya del medio */
+}
+
+.menu-toggle.is-active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* BOTÓN FLOTANTE */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+}
+
+.float-btn {
+    background-color: #25d366;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    text-decoration: none;
+}
+
+.float-btn img {
+    width: 35px;
+    height: 35px;
+}
+
+/* Efecto de pulso */
+.float-btn {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+.float-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Tooltip (solo visible en pantallas más grandes o al pasar el ratón) */
+.tooltip {
+    position: absolute;
+    right: 75px;
+    background: var(--surface);
+    color: var(--text);
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    border: 1px solid var(--border);
+}
+
+.float-btn:hover .tooltip {
+    opacity: 1;
+}
+
+/* En móviles muy pequeños, bajamos un poco el tamaño */
+@media (max-width: 480px) {
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .float-btn {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* ================================ */
+/*     RECOMENDADOR INTELIGENTE     */
+/* ================================ */
+.recomendador-section {
+    padding: 60px 5%;
+    background: var(--secondary-dark);
+    border-top: 1px solid #30363d;
+    border-bottom: 1px solid #30363d;
+    margin-top: 40px;
+}
+
+.reco-form {
+    margin-top: 30px;
+    max-width: 600px;
+}
+
+.resultado-reco {
+    margin-top: 40px;
+    padding: 25px;
+    background: var(--bg);
+    border: 1px solid var(--accent-blue);
+    border-radius: 10px;
+    display: none;
+}
+
+/* ================================ */
+/*         SETUPS DESTACADOS        */
+/* ================================ */
+.setups-section {
+    padding: 80px 5%;
+    background: var(--primary-dark);
+}
+
+.grid-setups {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.setup-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 5%;
+    transition: transform .3s, border-color .3s;
+    top: 0;
+}
+
+.setup-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-blue);
+}
+
+.setup-card h3 {
+    color: var(--accent-blue);
+    margin-bottom: 12px;
+}
+
+.setup-card ul {
+    list-style: none;
+    margin-bottom: 15px;
+}
+
+.setup-card li {
+    color: var(--gray-text);
+    margin-bottom: 6px;
+}
+
+
+/* ========================== */
+/*     Galería de imágenes    */
+/* ========================== */
+
+.galeria-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    transition: transform .3s ease, box-shadow .3s ease;
+    cursor: pointer;
+}
+
+.galeria-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    border-color: var(--accent-blue);
+}
+
+.galeria-img {
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border);
+}
+
+#galeria h6 {
+    color: var(--text);
+}
+
+:root[data-theme="dark"] .galeria-card {
+    background: var(--secondary-dark);
+    border-color: var(--border);
+}
+
+:root[data-theme="dark"] .galeria-img {
+    border-color: var(--border);
+}
+
+/* Tamaño del logo */
+.logo-navbar {
+    height: 48px;
+    width: auto;
+    transition: opacity .2s ease-in-out;
+}
+
+/* Tema claro → usa img1.png */
+:root:not([data-theme="dark"]) .logo-navbar {
+    content: url("./img1.png");
+    width: 50px;
+    filter: drop-shadow(0 0 4px rgba(0, 212, 255, 0.4));
+}
+
+/* Tema oscuro → usa img2.png */
+:root[data-theme="dark"] .logo-navbar {
+    content: url("./img2.png");
+    width: 50px;
+    filter: drop-shadow(0 0 4px rgba(0, 212, 255, 0.4));
+}
+
+section {
+    scroll-margin-top: 90px;
+    /* mejora navegación desde menú */
+}
+
+/* MÓVILES (pantallas pequeñas) */
+.theme {
+    transform: translateY(9px);
+    /* lo bajas */
+}
+
+/* ESCRITORIO (pantallas grandes) */
+@media (min-width: 768px) {
+    .theme {
+        transform: translateY(-5.5px);
+        /* lo subes */
+    }
+}
+
+.theme:hover {
+    box-shadow: 0 0 20px var(--text);
+}
