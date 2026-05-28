@@ -1,0 +1,18 @@
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+zone "tds.com" {
+type master;
+file "/etc/bind/zone/db.tds.com";
+forwarders{};
+};
+
+zone "30.0.10.in-addr.arpa" {
+type master;
+file "/etc/bind/zone/db.10.0.30";
+};

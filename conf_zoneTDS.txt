@@ -1,0 +1,20 @@
+;
+; BIND data file for local loopback interface
+;
+$TTL    604800
+@       IN      SOA     ns1.tds.com. mail.tds.com. (
+                              2         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+;
+@       IN      NS      ns1.tds.com.
+ns1.tds.com.    IN      A       10.0.30.10
+
+
+www.tds.com.    IN      A       10.0.10.10
+ftp.tds.com.    IN      A       10.0.30.20
+equipo.tds.com. IN      A       10.0.30.100
+fwiptables.tds.com.     IN      A       10.0.10.1
+fwzentyal.tds.com.      IN      A       10.0.30.1
